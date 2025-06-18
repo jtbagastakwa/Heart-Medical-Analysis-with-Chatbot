@@ -1,8 +1,8 @@
 streamlit
 pandas
-dotenv
-langchain_core.messages
+python-dotenv
+langchain_core
 langchain_google_genai
-langchain.prompts
+langchain
 scikit-learn
 xgboost

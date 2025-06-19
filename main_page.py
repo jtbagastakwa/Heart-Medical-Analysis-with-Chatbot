@@ -42,10 +42,22 @@ def local_css(file_name):
         st.warning(f"Peringatan: File gambar latar belakang '{file_name}' tidak ditemukan.")
 
 # Konfigurasi Model AI
-load_dotenv()
-google_api_key = os.getenv("GOOGLE_API_KEY")
+# load_dotenv()
+# google_api_key = os.getenv("GOOGLE_API_KEY")
 try:
-    chat_model = ChatGoogleGenerativeAI(model="gemini-1.5-flash", google_api_key=google_api_key, temperature=0.7)
+    # Saat di-deploy, Streamlit akan mencari secret dengan kunci "GOOGLE_API_KEY"
+    google_api_key = st.secrets["GOOGLE_API_KEY"] 
+except FileNotFoundError:
+    # Ini adalah fallback untuk pengembangan lokal, agar tidak error
+    # Pastikan Anda masih memiliki file secrets.toml di lokal
+    st.error("File secrets tidak ditemukan. Pastikan Anda sudah menambahkannya di pengaturan Streamlit Cloud.")
+    google_api_key = None # Atau muat dari .env jika Anda ingin tetap bisa jalan di lokal
+    
+try:
+    if google_api_key:
+        chat_model = ChatGoogleGenerativeAI(model="gemini-1.5-flash", google_api_key=google_api_key, temperature=0.7)
+    else:
+        chat_model = None
 except Exception as e:
     st.error(f"Gagal menginisialisasi model Gemini: {e}")
     chat_model = None

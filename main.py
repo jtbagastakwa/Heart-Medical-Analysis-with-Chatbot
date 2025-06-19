@@ -23,7 +23,7 @@ def main():
     # Jalankan halaman terpadu yang baru
     run_main_page(model, scaler, feature_names, evaluation_metrics)
 
-    st.markdown('<div style="text-align: center; color: black; margin-top: 50px;">Dibuat dengan ❤️ oleh Jati Tepatasa Bagastakwa</div>', unsafe_allow_html=True)
+    st.markdown('<div style="text-align: center; color: black; margin-top: 50px;">Dibuat dengan ❤️ oleh Jati Tepatasa Bagastakwa (dibantu AI)</div>', unsafe_allow_html=True)
 
 
 # --- Jalankan aplikasi ---

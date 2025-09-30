@@ -55,7 +55,7 @@ except FileNotFoundError:
     
 try:
     if google_api_key:
-        chat_model = ChatGoogleGenerativeAI(model="gemini-1.5-flash", google_api_key=google_api_key, temperature=0.7)
+        chat_model = ChatGoogleGenerativeAI(model="gemini-2.5-flash", google_api_key=google_api_key, temperature=0.7)
     else:
         chat_model = None
 except Exception as e:

@@ -7,7 +7,7 @@ import base64
 from dotenv import load_dotenv
 from langchain_core.messages import AIMessage, HumanMessage
 from langchain_google_genai import ChatGoogleGenerativeAI
-from langchain.prompts import PromptTemplate
+from langchain_core.prompts import PromptTemplate
 
 # --- BAGIAN 1: KONFIGURASI CHATBOT & FUNGSI BANTU ---
 
